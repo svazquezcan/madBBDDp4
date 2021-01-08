@@ -71,10 +71,11 @@ public class SQLProyectoDAO implements ProyectoDAO {
     }  
 
     @Override
-    public void obtenerTodos(Proyectos a) throws JAXBException, IOException {
+    public Proyectos obtenerTodos(Proyectos a) throws JAXBException, IOException {
         List<Map<String,Object>> rows = (List<Map<String,Object>>)
         jdbcTemplate.queryForList("SELECT * FROM proyecto"); 
         rows.forEach(System.out::println);
+        return a;
     } 
     
     public int lastidProyecto(){

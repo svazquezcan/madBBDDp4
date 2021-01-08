@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="MadBBDD.producto4.controllers.DelegacionesController">
-      <children>
+         <children>
       <VBox alignment="CENTER" layoutX="97.0" layoutY="-1.0" prefHeight="403.0" prefWidth="445.0">
          <children>
             <ImageView fitHeight="108.0" fitWidth="447.0" pickOnBounds="true" preserveRatio="true">
@@ -18,31 +18,40 @@
                   <Image url="@../images/logo-ec.png" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="115.0" prefWidth="448.0" text="Selecciona una opción para gestionar las delegaciones" textAlignment="CENTER">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="85.0" prefWidth="447.0" text="Selecciona una opción para gestionar las delegaciones" textAlignment="CENTER">
                <font>
                   <Font name="Microsoft Sans Serif" size="16.0" />
                </font>
             </Label>
-            <HBox alignment="TOP_CENTER" prefHeight="59.0" prefWidth="407.0">
+            <VBox alignment="BOTTOM_LEFT" prefHeight="114.0" prefWidth="447.0">
                <children>
-                  <Button fx:id="buttonAñadir" contentDisplay="BOTTOM" mnemonicParsing="false" text="Añadir" />
+                  <HBox alignment="TOP_CENTER" prefHeight="59.0" prefWidth="291.0">
+                     <children>
+                        <Button fx:id="buttonEditar" contentDisplay="BOTTOM" mnemonicParsing="false" text="Editar">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="buttonAñadir" contentDisplay="BOTTOM" mnemonicParsing="false" prefHeight="31.0" prefWidth="69.0" text="Añadir">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="buttonEliminar" mnemonicParsing="false" text="Eliminar">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="buttonVerTodo" contentDisplay="BOTTOM" mnemonicParsing="false" text="Ver todo" />
+                     </children>
+                  </HBox>
                </children>
-            </HBox>
-            <HBox alignment="TOP_CENTER" prefHeight="57.0" prefWidth="445.0">
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Button fx:id="buttonEliminar" mnemonicParsing="false" text="Eliminar" />
+                  <Button fx:id="atras" mnemonicParsing="false" prefHeight="0.0" prefWidth="54.0" onAction="#handleAtras" text="Atrás" />
                </children>
-            </HBox>
-            <HBox alignment="TOP_CENTER" prefHeight="59.0" prefWidth="407.0">
-               <children>
-                  <Button fx:id="buttonEditar" contentDisplay="BOTTOM" mnemonicParsing="false" text="Editar" />
-               </children>
-            </HBox>
-            <HBox alignment="TOP_CENTER" prefHeight="59.0" prefWidth="407.0">
-               <children>
-                  <Button fx:id="buttonVerTodo" contentDisplay="BOTTOM" mnemonicParsing="false" text="Ver todo" />
-               </children>
-            </HBox>
+            </VBox>
          </children>
       </VBox>
    </children>

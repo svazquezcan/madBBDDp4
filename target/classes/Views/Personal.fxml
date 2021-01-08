@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="403.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="403.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MadBBDD.producto4.controllers.PersonalController">
    <children>
       <VBox alignment="CENTER" layoutX="97.0" layoutY="-1.0" prefHeight="403.0" prefWidth="445.0">
          <children>
@@ -32,7 +32,7 @@
                               <Insets right="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="buttonAñadir" contentDisplay="BOTTOM" mnemonicParsing="false" prefHeight="31.0" prefWidth="69.0" text="Añadir">
+                        <Button fx:id="buttonAñadir" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#handleAñadir" prefHeight="31.0" prefWidth="69.0" text="Añadir">
                            <HBox.margin>
                               <Insets right="5.0" />
                            </HBox.margin>
@@ -42,14 +42,14 @@
                               <Insets right="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="buttonVerTodo" contentDisplay="BOTTOM" mnemonicParsing="false" text="Ver todo" />
+                        <Button fx:id="buttonVerTodo" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#handleVerTodo" text="Ver todo" />
                      </children>
                   </HBox>
                </children>
             </VBox>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="0.0" prefWidth="54.0" text="Atrás" />
+                  <Button fx:id="atras" mnemonicParsing="false" prefHeight="0.0" prefWidth="54.0" onAction="#handleAtras" text="Atrás" />
                </children>
             </VBox>
          </children>

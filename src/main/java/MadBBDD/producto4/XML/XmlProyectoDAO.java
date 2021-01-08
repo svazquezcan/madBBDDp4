@@ -47,12 +47,12 @@ public class XmlProyectoDAO implements ProyectoDAO{
         }
 
         @Override
-        public void obtenerTodos(Proyectos proyectos) throws PropertyException, JAXBException, IOException {
+        public Proyectos obtenerTodos(Proyectos proyectos) throws PropertyException, JAXBException, IOException {
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
             marshaller.marshal(proyectos, new FileWriter("Proyectos.xml"));
             System.out.println("El archivo Proyectos.xml ha sido creado correctamente ");
-
+            return proyectos;
         }
     
 }

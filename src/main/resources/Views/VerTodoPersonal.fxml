@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@Tabla.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MadBBDD.producto4.controllers.VerTodoPersonalController">
+    <children>
+        <Pane layoutX="18.0" layoutY="46.0" prefHeight="330.0" prefWidth="1131.0">
+        <children>
+        <TableView fx:id="verTodoPersonal" prefHeight="330.0" prefWidth="1131.0">
+        <columns>
+        <TableColumn fx:id="codigoDePersonal" prefWidth="154.0" text="codigoDePersonal" />
+        <TableColumn fx:id="tipoDePersonal" minWidth="0.0" prefWidth="183.0" text="tipoDePersonal" />
+        <TableColumn fx:id="nombre" minWidth="0.0" prefWidth="125.0" text="Nombre" />
+        <TableColumn fx:id="apellidos" minWidth="0.0" prefWidth="172.0" text="Apellidos" />
+        <TableColumn fx:id="usuario" minWidth="0.0" prefWidth="113.0" text="Usuario" />
+        <TableColumn fx:id="password" minWidth="0.0" prefWidth="159.0" text="Password" />
+        <TableColumn fx:id="delegacion" minWidth="0.0" prefWidth="213.0" text="Delegacion" />
+        </columns>
+        </TableView>
+        </children>
+        </Pane>
+        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+         <children>
+                  <Button fx:id="atras" mnemonicParsing="false" onAction="#handleAtras" prefHeight="0.0" prefWidth="54.0" text="Atrás">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+            </VBox>
+    </children>   
+</AnchorPane>

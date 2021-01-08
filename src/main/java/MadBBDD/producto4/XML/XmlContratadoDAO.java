@@ -45,12 +45,12 @@ public class XmlContratadoDAO implements ContratadoDAO {
     }
 
     @Override
-    public void obtenerTodos(Contratados contratados) throws PropertyException, JAXBException, IOException {
+    public Contratados obtenerTodos(Contratados contratados) throws PropertyException, JAXBException, IOException {
         Marshaller marshaller = context.createMarshaller();
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
         marshaller.marshal(contratados, new FileWriter("Contratados.xml"));
         System.out.println("El archivo Contratados.xml ha sido creado correctamente ");
-
+        return null;
     }
     
 }

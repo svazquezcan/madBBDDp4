@@ -33,7 +33,7 @@ public class SQLONGDAO implements ONGDAO {
     }
 
     @Override
-    public void obtenerTodos(ONGs a) throws JAXBException, IOException {
+    public ONGs obtenerTodos(ONGs a) throws JAXBException, IOException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

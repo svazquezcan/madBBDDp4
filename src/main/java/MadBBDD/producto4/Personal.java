@@ -203,6 +203,25 @@ public class Personal {
     
     }
     
+    public String obtenerDelegacion (int idDelegacion){
+        
+        String delegacion = null;
+   
+        if (idDelegacion == 1){
+            delegacion = "Entreculturas Portugal";
+        }
+        
+        else if(idDelegacion == 2){
+            delegacion = "Entreculturas Polonia";
+        }
+        
+        else if(idDelegacion == 3){
+            delegacion = "Entreculturas Francia";       
+        }
+    
+        return delegacion;  
+    }
+    
     /**Método de Personal para inicializar el AI de la PK codigoDePersonalCount siguiendo la numeración del AI de la BBDD, ya que al testear hemos creado y borrado muchos registros y la numeración difiera de la del código java
      * @param num*/
 

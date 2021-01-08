@@ -75,11 +75,12 @@ public class SQLDelegacionDAO implements DelegacionDAO {
     }    
 
     @Override
-    public void obtenerTodos(Delegaciones a) throws JAXBException, IOException {
+    public Delegaciones obtenerTodos(Delegaciones a) throws JAXBException, IOException {
  /*En realidad no necesita el parámetro de entrada Delegaciones pero lo mantenemos porque es función CRUD y las clases XML del anterior producto sí lo necesitan*/
         List<Map<String,Object>> rows = (List<Map<String,Object>>)
         jdbcTemplate.queryForList("SELECT * FROM delegacion"); 
         rows.forEach(System.out::println);
+        return a;
     }    
     
      public int lastIdDelegacion(){

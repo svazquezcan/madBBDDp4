@@ -24,6 +24,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
@@ -165,23 +166,39 @@ public class SQLPersonalDAO implements PersonalDAO {
 
     @Override
     /*En realidad no necesita el parámetro de entrada PersonalList pero lo mantenemos porque es función CRUD y las clases XML del anterior producto sí lo necesitan*/
-    public void obtenerTodos(PersonalList a) throws JAXBException, IOException {
+    public PersonalList obtenerTodos(PersonalList a) throws JAXBException, IOException {
         System.out.println("Este es el listado de personal:");
         List<Map<String,Object>> rows = (List<Map<String,Object>>)
-        jdbcTemplate.queryForList("SELECT * FROM personal"); 
+            jdbcTemplate.queryForList("SELECT * FROM personal");       
         rows.forEach(System.out::println);
+        ArrayList<Personal> listPersonas = new ArrayList<Personal>();
+        PersonalList miPersonalList = new PersonalList();
+        for (Map row : rows) {
+            Personal p = new Personal();
+            p.setCodigoDePersonal((int) row.get("codigoDePersonal"));
+            p.setApellido((String) row.get("apellido"));
+            p.setTipoDePersonal((String) row.get("tipoDePersonal"));
+            p.setNombre((String) row.get("nombre"));
+            p.setUsuario((String) row.get("usuario"));
+            p.setPassword((String) row.get("contraseña"));
+            String delegacion = p.obtenerDelegacion((int)row.get("idDelegacion"));
+            p.setDelegacion(delegacion);
+            listPersonas.add(p);
+        }
+        miPersonalList.setPersonal(listPersonas);
         System.out.println("Este es el listado de voluntarios:");
         List<Map<String,Object>> filas = (List<Map<String,Object>>)
-        jdbcTemplate.queryForList("SELECT * FROM voluntario"); 
+            jdbcTemplate.queryForList("SELECT * FROM voluntario"); 
         filas.forEach(System.out::println);
         System.out.println("Este es el listado de voluntarios internacionales:");
         List<Map<String,Object>> atributos = (List<Map<String,Object>>)
-        jdbcTemplate.queryForList("SELECT * FROM voluntariointernacional"); 
+            jdbcTemplate.queryForList("SELECT * FROM voluntariointernacional"); 
         atributos.forEach(System.out::println);
         System.out.println("Este es el listado de contratados:");
         List<Map<String,Object>> tuplas = (List<Map<String,Object>>)
-        jdbcTemplate.queryForList("SELECT * FROM contratado"); 
+            jdbcTemplate.queryForList("SELECT * FROM contratado"); 
         tuplas.forEach(System.out::println);
+        return miPersonalList;
         
     }
     

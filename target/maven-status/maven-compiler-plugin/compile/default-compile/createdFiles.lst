@@ -7,10 +7,12 @@ MadBBDD\producto4\Contratados.class
 MadBBDD\producto4\utilidad\DataSourceJDBC.class
 MadBBDD\producto4\controllers\ProyectosController.class
 MadBBDD\producto4\controllers\DelegacionesController.class
+MadBBDD\producto4\controllers\VerTodoPersonalController.class
 MadBBDD\producto4\ONG.class
 MadBBDD\producto4\DAO\CRUD.class
 MadBBDD\producto4\Menu.class
 MadBBDD\producto4\SQL\SQLDelegacionDAO.class
+MadBBDD\producto4\controllers\AñadirPersonalController.class
 MadBBDD\producto4\controllers\PersonalController.class
 MadBBDD\producto4\SQL\SQLONGDAO.class
 MadBBDD\producto4\XML\XmlContratadoDAO.class

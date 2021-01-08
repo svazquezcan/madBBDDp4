@@ -20,5 +20,5 @@ public interface CRUD<T,U,K,V> { /*T = clase que guardamos en el sistema, U = ot
     void insertar(U a);
     void modificar(V a, V b, K c);
     void eliminar(K a); 
-    void obtenerTodos(U a) throws JAXBException, IOException; 
+    U obtenerTodos(U a) throws JAXBException, IOException; 
 }   

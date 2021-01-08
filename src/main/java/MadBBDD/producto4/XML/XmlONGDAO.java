@@ -38,12 +38,12 @@ public class XmlONGDAO implements ONGDAO{
     }
 
     @Override
-    public void obtenerTodos(ONGs ONGs) throws PropertyException, JAXBException, IOException {
+    public ONGs obtenerTodos(ONGs ONGs) throws PropertyException, JAXBException, IOException {
         Marshaller marshaller = context.createMarshaller();
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
         marshaller.marshal(ONGs, new FileWriter("ONGs.xml"));
         System.out.println("El archivo ONGs.xml ha sido creado correctamente ");
-
+        return ONGs;
     }
     
 }

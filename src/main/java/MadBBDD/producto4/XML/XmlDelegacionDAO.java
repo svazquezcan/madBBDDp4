@@ -48,12 +48,12 @@ public class XmlDelegacionDAO implements DelegacionDAO{
     }
 
     @Override
-    public void obtenerTodos(Delegaciones delegaciones) throws PropertyException, JAXBException, IOException {
+    public Delegaciones obtenerTodos(Delegaciones delegaciones) throws PropertyException, JAXBException, IOException {
         Marshaller marshaller = context.createMarshaller();
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
         marshaller.marshal(delegaciones, new FileWriter("Delegaciones.xml"));
         System.out.println("El archivo Delegaciones.xml ha sido creado correctamente ");
-
+        return null;
     }
     
 }

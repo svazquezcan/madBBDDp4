@@ -46,11 +46,12 @@ public class XmlVoluntarioDAO implements VoluntarioDAO {
     }
 
     @Override
-    public void obtenerTodos(Voluntarios voluntarios) throws PropertyException, JAXBException, IOException {
+    public Voluntarios obtenerTodos(Voluntarios voluntarios) throws PropertyException, JAXBException, IOException {
         Marshaller marshaller = context.createMarshaller();
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
         marshaller.marshal(voluntarios, new FileWriter("Voluntarios.xml"));
         System.out.println("El archivo Voluntarios.xml ha sido creado correctamente ");
+        return voluntarios;
     }
 
 }

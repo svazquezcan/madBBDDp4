@@ -46,12 +46,12 @@ public class XmlPersonalDAO implements PersonalDAO {
     }
     
     @Override
-    public void obtenerTodos(PersonalList personal) throws PropertyException, JAXBException, IOException {
+    public PersonalList obtenerTodos(PersonalList personal) throws PropertyException, JAXBException, IOException {
         Marshaller marshaller = context.createMarshaller();
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
         marshaller.marshal(personal, new FileWriter("Personal.xml"));
         System.out.println("El archivo Personal.xml ha sido creado correctamente ");
-
+        return personal;
     }
     
 }
