@@ -207,6 +207,14 @@ public class SQLPersonalDAO implements PersonalDAO {
         return lastCodigoDePersonal;
     }
     
+     public boolean checkCodigoDePersonal(int codigo){
+        boolean isValid = true;
+        jdbcTemplate.update("SELECT codigoDePersonal FROM personal WHERE codigodePersonal = ?;",codigo);
+        if (codigo == 0){
+          isValid = false;  
+        }
+        return isValid;
+    }
     
     public void volcarDatosXML (PersonalList a) throws FileNotFoundException, JAXBException{
         InputStream inStream = new FileInputStream("Personal.xml");

@@ -6,7 +6,6 @@
 package MadBBDD.producto4.controllers;
 
 import MadBBDD.producto4.DAO.DAOFactory;
-import MadBBDD.producto4.Factory.DAOFactoryImpl;
 import MadBBDD.producto4.Personal;
 import MadBBDD.producto4.PersonalList;
 import MadBBDD.producto4.SQL.SQLPersonalDAO;
@@ -54,6 +53,7 @@ public class AñadirPersonalController implements Initializable {
     public void handleGuardar(ActionEvent event) throws Exception {
         Stage stage1 = (Stage) buttonGuardar.getScene().getWindow();
         try {
+            
             String tipoDePersonal = this.txt_tipoDePersonal.getText();
             String nombre = this.txt_nombre.getText();
             String apellidos = this.txt_apellidos.getText();
@@ -61,23 +61,59 @@ public class AñadirPersonalController implements Initializable {
             String password = this.txt_password.getText();
             String delegacion = this.txt_delegacion.getText();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Views/VerTodoPersonal.fxml"));
+            boolean isValid = true;
             
-            Personal nuevoPersonal = new Personal(tipoDePersonal, nombre, apellidos, usuario, password, delegacion);
-            PersonalList personalList = new PersonalList();
-            ArrayList <Personal> personal = new ArrayList<>();
-            personal.add(nuevoPersonal);
-            personalList.setPersonal(personal);
-            DAOFactory DAOFactoryImpl = DAOFactory.getDAOFactory();
-            SQLPersonalDAO totalSQLPersonalDAO = DAOFactoryImpl.getPersonalDAOSQL();
-            totalSQLPersonalDAO.insertar(personalList);
+            if (tipoDePersonal.isEmpty()|| nombre.isEmpty() || apellidos.isEmpty() || usuario.isEmpty() || password.isEmpty() || delegacion.isEmpty()){
             
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Personal guardado");
-            alert.setHeaderText("Personal guardado");
-            alert.setContentText("El nuevo personal ha sido guardado correctamente");
-            alert.showAndWait();
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Campo vacío");
+                alert.setHeaderText("Campo vacío");
+                alert.setContentText("No puede haber ningún campo vacío para crear un nuevo personal");
+                alert.showAndWait();  
+                isValid = false;
 
+            }
             
+            if (!"Entreculturas Francia".equals(delegacion) && !"Entreculturas Polonia".equals(delegacion) && !"Entreculturas Portugal".equals(delegacion) && !"".equals(delegacion)){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Campo incorrecto");
+                alert.setHeaderText("Campo incorrecto");
+                alert.setContentText("El campo delegacion solo puede ser: Entreculturas Francia, Entreculturas Polonia o Entreculturas Portugal");
+                alert.showAndWait();    
+                isValid = false;
+
+                
+            }
+            
+            if (!"Voluntario".equals(tipoDePersonal) && !"VoluntarioInternacional".equals(tipoDePersonal) && !"Contratado".equals(tipoDePersonal) && !"".equals(tipoDePersonal)){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Campo incorrecto");
+                alert.setHeaderText("Campo incorrecto");
+                alert.setContentText("El campo tipoDePersonal solo puede ser: Voluntario, VoluntarioInternacional o Contratado");
+                alert.showAndWait();   
+                isValid = false;
+                
+            }
+            
+            if (isValid){
+            
+                Personal nuevoPersonal = new Personal(tipoDePersonal, nombre, apellidos, usuario, password, delegacion);
+                PersonalList personalList = new PersonalList();
+                ArrayList <Personal> personal = new ArrayList<>();
+                personal.add(nuevoPersonal);
+                personalList.setPersonal(personal);
+                DAOFactory DAOFactoryImpl = DAOFactory.getDAOFactory();
+                SQLPersonalDAO totalSQLPersonalDAO = DAOFactoryImpl.getPersonalDAOSQL();
+                totalSQLPersonalDAO.insertar(personalList);
+                
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Personal guardado");
+                alert.setHeaderText("Personal guardado");
+                alert.setContentText("El nuevo personal ha sido guardado correctamente");
+                alert.showAndWait();
+            
+            }
+                       
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));

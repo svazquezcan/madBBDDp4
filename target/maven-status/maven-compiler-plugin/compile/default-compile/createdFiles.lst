@@ -17,7 +17,6 @@ MadBBDD\producto4\controllers\PersonalController.class
 MadBBDD\producto4\SQL\SQLONGDAO.class
 MadBBDD\producto4\XML\XmlContratadoDAO.class
 MadBBDD\producto4\XML\XmlONGDAO.class
-MadBBDD\producto4\EntreculturasApp.class
 MadBBDD\producto4\Voluntario.class
 MadBBDD\producto4\controllers\LogInController.class
 MadBBDD\producto4\Proyectos.class
@@ -25,11 +24,9 @@ MadBBDD\producto4\DAO\ContratadoDAO.class
 MadBBDD\producto4\DAO\ProyectoDAO.class
 MadBBDD\producto4\DAO\VoluntarioDAO.class
 MadBBDD\producto4\Contratado.class
-MadBBDD\producto4\Factory\DAOFactoryImpl.class
 MadBBDD\producto4\Personal.class
 MadBBDD\producto4\XML\XmlVoluntarioDAO.class
 MadBBDD\producto4\Delegaciones.class
-MadBBDD\producto4\DAO\DAOFactory.class
 MadBBDD\producto4\PersonalList.class
 MadBBDD\producto4\Voluntarios.class
 MadBBDD\producto4\DAO\ONGDAO.class

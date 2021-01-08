@@ -77,6 +77,22 @@ public class PersonalController implements Initializable{
             e.printStackTrace();
         }        
     }
+    
+     @FXML
+    public void handleEliminar (ActionEvent event3) throws Exception {
+        Stage stage4 = (Stage) buttonEliminar.getScene().getWindow();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Views/EliminarPersonal.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage4.close();
+            stage.show();
+        } 
+        catch (Exception e) {
+            e.printStackTrace();
+        }        
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
