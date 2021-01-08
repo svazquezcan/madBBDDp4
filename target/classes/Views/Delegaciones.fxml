@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="MadBBDD.producto4.controllers.DelegacionesController">
+      <children>
+      <VBox alignment="CENTER" layoutX="97.0" layoutY="-1.0" prefHeight="403.0" prefWidth="445.0">
+         <children>
+            <ImageView fitHeight="108.0" fitWidth="447.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/logo-ec.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="115.0" prefWidth="448.0" text="Selecciona una opción para gestionar las delegaciones" textAlignment="CENTER">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="16.0" />
+               </font>
+            </Label>
+            <HBox alignment="TOP_CENTER" prefHeight="59.0" prefWidth="407.0">
+               <children>
+                  <Button fx:id="buttonAñadir" contentDisplay="BOTTOM" mnemonicParsing="false" text="Añadir" />
+               </children>
+            </HBox>
+            <HBox alignment="TOP_CENTER" prefHeight="57.0" prefWidth="445.0">
+               <children>
+                  <Button fx:id="buttonEliminar" mnemonicParsing="false" text="Eliminar" />
+               </children>
+            </HBox>
+            <HBox alignment="TOP_CENTER" prefHeight="59.0" prefWidth="407.0">
+               <children>
+                  <Button fx:id="buttonEditar" contentDisplay="BOTTOM" mnemonicParsing="false" text="Editar" />
+               </children>
+            </HBox>
+            <HBox alignment="TOP_CENTER" prefHeight="59.0" prefWidth="407.0">
+               <children>
+                  <Button fx:id="buttonVerTodo" contentDisplay="BOTTOM" mnemonicParsing="false" text="Ver todo" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
