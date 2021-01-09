@@ -14,7 +14,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.sql.Date;
 import java.util.List;
 import java.util.Map;
 import javax.xml.bind.JAXBContext;
@@ -75,7 +78,31 @@ public class SQLProyectoDAO implements ProyectoDAO {
         List<Map<String,Object>> rows = (List<Map<String,Object>>)
         jdbcTemplate.queryForList("SELECT * FROM proyecto"); 
         rows.forEach(System.out::println);
-        return a;
+        ArrayList<Proyecto> listaProyectos = new ArrayList<Proyecto>();
+        Proyectos misProyectos = new Proyectos();
+        for (Map row : rows) {
+            Proyecto p = new Proyecto();
+            p.setCifOng((String) row.get("cifOng"));
+            p.setCodigoDeProyecto((int) row.get("codigoDeProyecto"));
+            p.setPais((String) row.get("pais"));
+            p.setLocalizacion((String) row.get("localizacion"));
+            p.setLineaDeAccion((String) row.get("lineaDeAccion"));
+            p.setSublineaDeAccion((String) row.get("sublineaDeAccion"));
+            java.sql.Date fechaIni = ((java.sql.Date) row.get("fechaDeInicio"));
+            LocalDate fechaInicio = fechaIni.toLocalDate();
+            p.setFechaDeInicio(fechaInicio);
+            java.sql.Date fechaFin = ((java.sql.Date) row.get("fechaDeFinalizacion"));
+            LocalDate fechaFinalizacion = fechaFin.toLocalDate();
+            p.setFechaDeFinalizacion(fechaFinalizacion);
+            p.setSocioLocal((String) row.get("socioLocal"));
+            p.setFinanciador((String) row.get("financiador"));
+            p.setFinanciacionAportada((Float) row.get("financiacionAportada"));
+            p.setCosteProyecto((Float) row.get("costeProyecto"));
+            p.setAccionesARealizar((String) row.get("accionesARealizar"));
+            listaProyectos.add(p);
+        }
+        misProyectos.setProyectos(listaProyectos);
+        return misProyectos;
     } 
     
     public int lastidProyecto(){

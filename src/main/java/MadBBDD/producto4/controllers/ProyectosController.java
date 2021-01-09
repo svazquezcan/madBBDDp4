@@ -49,6 +49,23 @@ public class ProyectosController implements Initializable {
             e.printStackTrace();
         }        
     }
+    
+     @FXML
+    public void handleVerTodo(ActionEvent event1) throws Exception {
+        Stage stage2 = (Stage) buttonVerTodo.getScene().getWindow();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Views/VerTodosLosProyectos.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage2.close();
+            stage.show();
+        } 
+        catch (Exception e) {
+            e.printStackTrace();
+        }        
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

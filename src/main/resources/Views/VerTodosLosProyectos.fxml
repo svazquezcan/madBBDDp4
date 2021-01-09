@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="476.0" prefWidth="1168.0" stylesheets="@Tabla.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MadBBDD.producto4.controllers.VerTodosLosProyectosController">
+     <children>
+        <Pane layoutX="18.0" layoutY="46.0" prefHeight="330.0" prefWidth="1131.0">
+        <children>
+        <TableView fx:id="verTodosLosProyectos" prefHeight="330.0" prefWidth="1131.0">
+        <columns>
+        <TableColumn fx:id="codigoDeProyecto" prefWidth="66.0" text="codigoDeProyecto" />
+        <TableColumn fx:id="pais" minWidth="0.0" prefWidth="57.0" text="pais" />
+        <TableColumn fx:id="localizacion" minWidth="0.0" prefWidth="102.0" text="localizacion" />
+        <TableColumn fx:id="lineaDeAccion" minWidth="0.0" prefWidth="116.0" text="lineaDeAccion" />
+        <TableColumn fx:id="sublineaDeAccion" minWidth="0.0" prefWidth="132.0" text="sublineaDeAccion" />
+        <TableColumn fx:id="fechaDeInicio" minWidth="0.0" prefWidth="122.0" text="fechaDeInicio" />
+        <TableColumn fx:id="fechaDeFinalizacion" minWidth="0.0" prefWidth="97.0" text="fechaDeFinalizacion" />
+        <TableColumn fx:id="socioLocal" minWidth="0.0" prefWidth="53.0" text="socioLocal" />
+        <TableColumn fx:id="financiador" minWidth="0.0" prefWidth="85.0" text="financiador" />
+        <TableColumn fx:id="financiacionAportada" minWidth="0.0" prefWidth="161.0" text="financiacionAportada" />
+        <TableColumn fx:id="costeProyecto" minWidth="0.0" prefWidth="58.0" text="costeProyecto" />
+        <TableColumn fx:id="accionesARealizar" minWidth="0.0" prefWidth="81.0" text="accionesARealizar" />
+        </columns>
+        </TableView>
+        </children>
+        </Pane>
+      <Button fx:id="modificarProyecto" layoutX="512.0" layoutY="399.0" mnemonicParsing="false" text="Modificar proyecto" />
+            <Button fx:id="atras" layoutX="18.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleAtras" prefHeight="0.0" prefWidth="54.0" text="Atrás" />
+      <Button fx:id="buttonSalir" layoutX="994.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleSalir" text="Salir de la aplicación" />
+    </children>   
+</AnchorPane>

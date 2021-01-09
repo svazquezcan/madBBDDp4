@@ -42,7 +42,7 @@
                               <Insets right="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="buttonVerTodo" contentDisplay="BOTTOM" mnemonicParsing="false" text="Ver todo" />
+                        <Button fx:id="buttonVerTodo" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#handleVerTodo" text="Ver todo" />
                      </children>
                   </HBox>
                </children>

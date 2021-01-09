@@ -113,25 +113,25 @@ public class VerTodoPersonalController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    try {
-        DAOFactory DAOFactoryImpl = DAOFactory.getDAOFactory();
-        PersonalList personal = new PersonalList();
-        PersonalList listaDePersonal = new PersonalList(); 
-        SQLPersonalDAO totalSQLPersonalDAO = DAOFactoryImpl.getPersonalDAOSQL();
-        listaDePersonal = totalSQLPersonalDAO.obtenerTodos(personal);
-        ObservableList<Personal> infoPersonal = FXCollections.observableArrayList(listaDePersonal.getPersonalList());
-        codigoDePersonal.setCellValueFactory(new PropertyValueFactory<>("CodigoDePersonal"));
-        delegacion.setCellValueFactory(new PropertyValueFactory<>("delegacion"));
-        nombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        apellidos.setCellValueFactory(new PropertyValueFactory<>("apellido"));
-        usuario.setCellValueFactory(new PropertyValueFactory<>("usuario"));
-        password.setCellValueFactory(new PropertyValueFactory<>("password"));
-        tipoDePersonal.setCellValueFactory(new PropertyValueFactory<>("tipoDePersonal"));
-        verTodoPersonal.setItems(infoPersonal);
-    } 
-    catch (Exception e) {
-        e.printStackTrace();
-    }
+        try {
+            DAOFactory DAOFactoryImpl = DAOFactory.getDAOFactory();
+            PersonalList personal = new PersonalList();
+            PersonalList listaDePersonal = new PersonalList(); 
+            SQLPersonalDAO totalSQLPersonalDAO = DAOFactoryImpl.getPersonalDAOSQL();
+            listaDePersonal = totalSQLPersonalDAO.obtenerTodos(personal);
+            ObservableList<Personal> infoPersonal = FXCollections.observableArrayList(listaDePersonal.getPersonalList());
+            codigoDePersonal.setCellValueFactory(new PropertyValueFactory<>("CodigoDePersonal"));
+            delegacion.setCellValueFactory(new PropertyValueFactory<>("delegacion"));
+            nombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+            apellidos.setCellValueFactory(new PropertyValueFactory<>("apellido"));
+            usuario.setCellValueFactory(new PropertyValueFactory<>("usuario"));
+            password.setCellValueFactory(new PropertyValueFactory<>("password"));
+            tipoDePersonal.setCellValueFactory(new PropertyValueFactory<>("tipoDePersonal"));
+            verTodoPersonal.setItems(infoPersonal);
+        } 
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
  
     
