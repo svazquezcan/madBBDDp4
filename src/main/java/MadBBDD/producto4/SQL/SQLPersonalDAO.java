@@ -141,12 +141,27 @@ public class SQLPersonalDAO implements PersonalDAO {
     @Override
     public void modificar(String a, String b, Integer c) {
         if(!"funcion".equals(a) && !"costeSalario".equals(a)){
-            String sql = "UPDATE personal SET ";
-            String sqlUpdate = sql.concat(a);
-            String sqlLast = sqlUpdate + " = ? WHERE codigoDePersonal = ?";
-            jdbcTemplate.update(sqlLast,b,c);
-            System.out.println("El atributo " + a + " del personal de código " + c + " pasa a ser ahora " + b);
+            
+            if(!"idDelegacion".equals(a)){
+                String sql = "UPDATE personal SET ";
+                String sqlUpdate = sql.concat(a);
+                String sqlLast = sqlUpdate + " = ? WHERE codigoDePersonal = ?";
+                jdbcTemplate.update(sqlLast,b,c);
+                System.out.println("El atributo " + a + " del personal de código " + c + " pasa a ser ahora " + b);
+            }
+            
+            else{
+                Personal personal = new Personal();
+                int codigoDelegacion = personal.obtenerIdDelegacion(b);
+                String sql = "UPDATE personal SET ";
+                String sqlUpdate = sql.concat(a);
+                String sqlLast = sqlUpdate + " = ? WHERE codigoDePersonal = ?";
+                jdbcTemplate.update(sqlLast,codigoDelegacion,c);
+                System.out.println("El atributo " + a + " del personal de código " + c + " pasa a ser ahora " + codigoDelegacion);
+            }
         }
+                 
+        
         else{
             String SQL = "UPDATE contratado SET ";
             String SQLUpdate = SQL.concat(a);

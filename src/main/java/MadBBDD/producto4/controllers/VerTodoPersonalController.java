@@ -55,6 +55,8 @@ public class VerTodoPersonalController implements Initializable {
     public Button atras;
     @FXML
     public Button modificarPersonal;
+    @FXML
+    public Button buttonSalir;
 
    @FXML
     public void handleAtras(ActionEvent event) throws Exception {
@@ -100,6 +102,12 @@ public class VerTodoPersonalController implements Initializable {
                 alert.showAndWait();
             }
 
+    }
+    
+    @FXML
+    public void handleSalir(ActionEvent event) {
+        Stage stage3 = (Stage) buttonSalir.getScene().getWindow();
+        stage3.close();
     }
   
     
