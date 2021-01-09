@@ -28,6 +28,7 @@ import java.util.Map.Entry;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
+import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -207,13 +208,13 @@ public class SQLPersonalDAO implements PersonalDAO {
         return lastCodigoDePersonal;
     }
     
-     public boolean checkCodigoDePersonal(int codigo){
-        boolean isValid = true;
-        jdbcTemplate.update("SELECT codigoDePersonal FROM personal WHERE codigodePersonal = ?;",codigo);
-        if (codigo == 0){
-          isValid = false;  
+     public int checkCodigoDePersonal(int codigo){
+        try{
+            return jdbcTemplate.queryForObject("SELECT codigoDePersonal FROM personal WHERE codigodePersonal = ?;",Integer.class,codigo);
         }
-        return isValid;
+        catch(DataAccessException e){
+            return -1;
+        }
     }
     
     public void volcarDatosXML (PersonalList a) throws FileNotFoundException, JAXBException{

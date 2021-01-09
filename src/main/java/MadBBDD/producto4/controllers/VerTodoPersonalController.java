@@ -21,6 +21,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -52,6 +53,8 @@ public class VerTodoPersonalController implements Initializable {
     public TableColumn delegacion;  
     @FXML
     public Button atras;
+    @FXML
+    public Button modificarPersonal;
 
    @FXML
     public void handleAtras(ActionEvent event) throws Exception {
@@ -68,6 +71,38 @@ public class VerTodoPersonalController implements Initializable {
             e.printStackTrace();
         }        
     }
+    
+     @FXML
+    public void handleModificar (ActionEvent event1) throws Exception {
+        Personal personal = verTodoPersonal.getSelectionModel().getSelectedItem();
+        if (personal != null) {
+            Stage stage2 = (Stage) modificarPersonal.getScene().getWindow();
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Views/ModificarPersonal.fxml"));
+                Parent root1 = (Parent) fxmlLoader.load();
+                ModificarPersonalController modificarPersonalController = fxmlLoader.getController();
+                modificarPersonalController.setPersonal(verTodoPersonal.getSelectionModel().getSelectedItem());
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root1));
+                stage2.close();
+                stage.show();
+            } 
+            catch (Exception e) {
+                e.printStackTrace();
+            }   
+            
+            } 
+            else {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("No se ha seleccionado personal");
+                alert.setHeaderText("No se ha seleccionado personal");
+                alert.setContentText("Por favor, selecciona un miembro de personal.");
+                alert.showAndWait();
+            }
+
+    }
+  
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     try {

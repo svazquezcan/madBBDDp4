@@ -45,10 +45,10 @@ public class EliminarPersonalController implements Initializable {
             int codigo = Integer.parseInt(codigoDePersonal);
             DAOFactory DAOFactoryImpl = DAOFactory.getDAOFactory();
             SQLPersonalDAO totalSQLPersonalDAO = DAOFactoryImpl.getPersonalDAOSQL();
-            boolean isValid = true;
-            isValid = totalSQLPersonalDAO.checkCodigoDePersonal(codigo);
+            int respuestaQuery = 0;
+            respuestaQuery = totalSQLPersonalDAO.checkCodigoDePersonal(codigo);
             
-            if (isValid){
+            if (respuestaQuery!=-1){
                 totalSQLPersonalDAO.eliminar(codigo);
                 
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

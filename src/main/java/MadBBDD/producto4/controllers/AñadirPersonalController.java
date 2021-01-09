@@ -52,8 +52,7 @@ public class AñadirPersonalController implements Initializable {
     @FXML
     public void handleGuardar(ActionEvent event) throws Exception {
         Stage stage1 = (Stage) buttonGuardar.getScene().getWindow();
-        try {
-            
+        try {  
             String tipoDePersonal = this.txt_tipoDePersonal.getText();
             String nombre = this.txt_nombre.getText();
             String apellidos = this.txt_apellidos.getText();
@@ -103,8 +102,8 @@ public class AñadirPersonalController implements Initializable {
                 personal.add(nuevoPersonal);
                 personalList.setPersonal(personal);
                 DAOFactory DAOFactoryImpl = DAOFactory.getDAOFactory();
-                SQLPersonalDAO totalSQLPersonalDAO = DAOFactoryImpl.getPersonalDAOSQL();
-                totalSQLPersonalDAO.insertar(personalList);
+                SQLPersonalDAO SQLPersonalDAO = DAOFactoryImpl.getPersonalDAOSQL();
+                SQLPersonalDAO.insertar(personalList);
                 
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Personal guardado");
