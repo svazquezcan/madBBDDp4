@@ -23,6 +23,7 @@ import java.util.Map;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
+import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -110,6 +111,15 @@ public class SQLProyectoDAO implements ProyectoDAO {
         return lastidProyecto;
     }
     
+    public int checkCodigoDeProyecto(int codigo){
+        try{
+            return jdbcTemplate.queryForObject("SELECT codigoDeProyecto FROM proyecto WHERE codigoDeProyecto = ?;",Integer.class,codigo);
+        }
+        catch(DataAccessException e){
+            return -1;
+        }
+    }
+       
     public void volcarDatosXML (Proyectos a) throws FileNotFoundException, JAXBException{
         InputStream inStream = new FileInputStream("Proyectos.xml");
         JAXBContext context = JAXBContext.newInstance(Proyectos.class); 

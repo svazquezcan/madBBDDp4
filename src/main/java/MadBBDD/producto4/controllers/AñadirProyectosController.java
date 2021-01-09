@@ -128,7 +128,12 @@ public class AñadirProyectosController implements Initializable {
             stage.show();
         } 
         catch (IOException | NumberFormatException | SQLException e) {
-            e.printStackTrace();    
+            e.printStackTrace();   
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Campo vacío o incorrecto");
+            alert.setHeaderText("Campo vacío o incorrecto");
+            alert.setContentText("No puede haber ningún campo vacío para crear un nuevo proyecto o los campos financiacion y costeProyecto no son números");
+            alert.showAndWait();  
         }        
     }
       public void handleAtras(ActionEvent event1) throws Exception {

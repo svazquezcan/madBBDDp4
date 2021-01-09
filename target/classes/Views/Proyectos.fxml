@@ -37,7 +37,7 @@
                               <Insets right="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="buttonEliminar" mnemonicParsing="false" text="Eliminar">
+                        <Button fx:id="buttonEliminar" mnemonicParsing="false" onAction="#handleEliminar" text="Eliminar">
                            <HBox.margin>
                               <Insets right="5.0" />
                            </HBox.margin>
