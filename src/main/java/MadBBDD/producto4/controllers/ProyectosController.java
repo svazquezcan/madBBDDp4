@@ -63,6 +63,23 @@ public class ProyectosController implements Initializable {
         } 
         catch (Exception e) {
             e.printStackTrace();
+        }  
+        
+    }
+    
+     @FXML
+    public void handleAñadir (ActionEvent event2) throws Exception {
+        Stage stage3 = (Stage) buttonAñadir.getScene().getWindow();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Views/AñadirProyectos.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage3.close();
+            stage.show();
+        } 
+        catch (Exception e) {
+            e.printStackTrace();
         }        
     }
     
