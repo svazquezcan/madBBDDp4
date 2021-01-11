@@ -17,9 +17,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
+import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -76,13 +78,33 @@ public class SQLDelegacionDAO implements DelegacionDAO {
 
     @Override
     public Delegaciones obtenerTodos(Delegaciones a) throws JAXBException, IOException {
- /*En realidad no necesita el parámetro de entrada Delegaciones pero lo mantenemos porque es función CRUD y las clases XML del anterior producto sí lo necesitan*/
+        System.out.println("Listado de Delegaciones");
         List<Map<String,Object>> rows = (List<Map<String,Object>>)
         jdbcTemplate.queryForList("SELECT * FROM delegacion"); 
         rows.forEach(System.out::println);
-        return a;
+        ArrayList<Delegacion> listDelegaciones = new ArrayList<Delegacion>();
+        Delegaciones miDelegacionesList = new Delegaciones();
+        for (Map row : rows) {
+            Delegacion p = new Delegacion();
+            p.setIdDelegacion((int) row.get("idDelegacion"));
+            p.setCifOng((String) row.get("cifOng"));
+            p.setNombre((String) row.get("nombre"));
+            p.setDireccion((String) row.get("direccion"));
+            p.setTelefono((String) row.get("telefono"));
+            listDelegaciones.add(p); 
+        }
+        miDelegacionesList.setDelegaciones(listDelegaciones);
+        return miDelegacionesList;
     }    
     
+    public int checkidDelegacion(int codigo){
+        try{
+            return jdbcTemplate.queryForObject("SELECT idDelegacion FROM delegacion WHERE idDelegacion = ?;",Integer.class,codigo);
+        }
+        catch(DataAccessException e){
+            return -1;
+        }
+    }
      public int lastIdDelegacion(){
         int lastIdDelegacion = jdbcTemplate.queryForObject("SELECT idDelegacion FROM delegacion ORDER BY idDelegacion DESC LIMIT 1", Integer.class);
         return lastIdDelegacion;

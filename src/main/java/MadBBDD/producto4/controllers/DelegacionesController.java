@@ -16,19 +16,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author Sandra
- */
 public class DelegacionesController implements Initializable {
 
     @FXML
     public Button buttonAñadir; 
     @FXML
     public Button buttonEliminar; 
-    @FXML
-    public Button buttonEditar; 
     @FXML
     public Button buttonVerTodo;
     @FXML
@@ -43,6 +36,55 @@ public class DelegacionesController implements Initializable {
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
             stage1.close();
+            stage.show();
+        } 
+        catch (Exception e) {
+            e.printStackTrace();
+        }        
+    }
+    
+    @FXML
+    public void handleVerTodo(ActionEvent event1) throws Exception {
+        Stage stage2 = (Stage) buttonVerTodo.getScene().getWindow();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Views/VerTodasDelegaciones.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage2.close();
+            stage.show();
+        } 
+        catch (Exception e) {
+            e.printStackTrace();
+        }  
+        
+    }
+    
+    @FXML
+    public void handleAñadir (ActionEvent event2) throws Exception {
+        Stage stage3 = (Stage) buttonAñadir.getScene().getWindow();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Views/AñadirDelegaciones.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage3.close();
+            stage.show();
+        } 
+        catch (Exception e) {
+            e.printStackTrace();
+        }        
+    }
+    
+    @FXML
+    public void handleEliminar (ActionEvent event3) throws Exception {
+        Stage stage4 = (Stage) buttonEliminar.getScene().getWindow();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Views/EliminarDelegaciones.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage4.close();
             stage.show();
         } 
         catch (Exception e) {
