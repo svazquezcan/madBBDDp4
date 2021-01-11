@@ -18,6 +18,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.Label;
@@ -64,17 +65,60 @@ public class ModificarPersonalController implements Initializable {
             String usuario = this.txt_usuario.getText();
             String password = this.txt_password.getText();
             String delegacion = this.txt_delegacion.getText();
+            boolean isValid = true;
+            
+               if (tipoDePersonal.isEmpty()|| nombre.isEmpty() || apellido.isEmpty() || usuario.isEmpty() || password.isEmpty() || delegacion.isEmpty()){
+            
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Campo vacío");
+                alert.setHeaderText("Campo vacío");
+                alert.setContentText("No puede haber ningún campo vacío para modificar un nuevo personal");
+                alert.showAndWait();  
+                isValid = false;
+
+            }
+            
+               if (!"Entreculturas Francia".equals(delegacion) && !"Entreculturas Polonia".equals(delegacion) && !"Entreculturas Portugal".equals(delegacion) && !"".equals(delegacion)){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Campo incorrecto");
+                alert.setHeaderText("Campo incorrecto");
+                alert.setContentText("El campo delegacion solo puede ser: Entreculturas Francia, Entreculturas Polonia o Entreculturas Portugal");
+                alert.showAndWait();    
+                isValid = false;
+
+                
+            }
+            
+            if (!"Voluntario".equals(tipoDePersonal) && !"VoluntarioInternacional".equals(tipoDePersonal) && !"Contratado".equals(tipoDePersonal) && !"".equals(tipoDePersonal)){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Campo incorrecto");
+                alert.setHeaderText("Campo incorrecto");
+                alert.setContentText("El campo tipoDePersonal solo puede ser: Voluntario, VoluntarioInternacional o Contratado");
+                alert.showAndWait();   
+                isValid = false;
+                
+            }
+            
+            if(isValid){
            
-            DAOFactory DAOFactoryImpl = DAOFactory.getDAOFactory();
-            SQLPersonalDAO SQLPersonalDAO = DAOFactoryImpl.getPersonalDAOSQL();
-            int codigoPersonal = this.setPersonal(personal);
-            SQLPersonalDAO.modificar("tipoDePersonal", tipoDePersonal, codigoPersonal);
-            SQLPersonalDAO.modificar("nombre", nombre, codigoPersonal);
-            SQLPersonalDAO.modificar("apellido", apellido, codigoPersonal);
-            SQLPersonalDAO.modificar("usuario", usuario, codigoPersonal);
-            SQLPersonalDAO.modificar("contraseña", password, codigoPersonal);
-            SQLPersonalDAO.modificar("idDelegacion", delegacion, codigoPersonal);
+                DAOFactory DAOFactoryImpl = DAOFactory.getDAOFactory();
+                SQLPersonalDAO SQLPersonalDAO = DAOFactoryImpl.getPersonalDAOSQL();
+                int codigoPersonal = this.setPersonal(personal);
+                SQLPersonalDAO.modificar("tipoDePersonal", tipoDePersonal, codigoPersonal);
+                SQLPersonalDAO.modificar("nombre", nombre, codigoPersonal);
+                SQLPersonalDAO.modificar("apellido", apellido, codigoPersonal);
+                SQLPersonalDAO.modificar("usuario", usuario, codigoPersonal);
+                SQLPersonalDAO.modificar("contraseña", password, codigoPersonal);
+                SQLPersonalDAO.modificar("idDelegacion", delegacion, codigoPersonal);
+                
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Personal guardado");
+                alert.setHeaderText("Personal guardado");
+                alert.setContentText("El nuevo personal ha sido modificado y guardado correctamente");
+                alert.showAndWait();
            
+            }
+            
             Stage stage1 = (Stage) buttonGuardar.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Views/VerTodoPersonal.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();

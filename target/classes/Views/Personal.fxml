@@ -31,22 +31,22 @@
                <children>
                   <HBox alignment="TOP_CENTER" prefHeight="59.0" prefWidth="291.0">
                      <children>
-                        <Button fx:id="buttonEditar" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#handleEditar" prefHeight="32.0" prefWidth="57.0" text="Editar">
+                        <Button fx:id="buttonEditar" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#handleEditar" prefHeight="36.0" prefWidth="64.0" text="Editar">
                            <HBox.margin>
                               <Insets right="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="buttonAñadir" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#handleAñadir" prefHeight="31.0" prefWidth="69.0" text="Añadir">
+                        <Button fx:id="buttonAñadir" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#handleAñadir" prefHeight="35.0" prefWidth="65.0" text="Añadir">
                            <HBox.margin>
                               <Insets right="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="buttonEliminar" mnemonicParsing="false" onAction="#handleEliminar" prefHeight="31.0" prefWidth="70.0" text="Eliminar">
+                        <Button fx:id="buttonEliminar" mnemonicParsing="false" onAction="#handleEliminar" prefHeight="35.0" prefWidth="73.0" text="Eliminar">
                            <HBox.margin>
                               <Insets right="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="buttonVerTodo" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#handleVerTodo" prefHeight="30.0" prefWidth="73.0" text="Ver todo" />
+                        <Button fx:id="buttonVerTodo" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#handleVerTodo" prefHeight="35.0" prefWidth="85.0" text="Ver todo" />
                      </children>
                   </HBox>
                   <Button fx:id="atras" mnemonicParsing="false" onAction="#handleAtras" prefHeight="0.0" prefWidth="285.0" text="Atrás" />

@@ -8,7 +8,9 @@ package MadBBDD.producto4.controllers;
 import MadBBDD.producto4.DAO.DAOFactory;
 import MadBBDD.producto4.Proyecto;
 import MadBBDD.producto4.SQL.SQLProyectoDAO;
+import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
@@ -18,6 +20,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -88,22 +91,43 @@ public class ModificarProyectoController implements Initializable {
             String monthF = fechaFinalizacion.substring(3,5);
             String yearF = fechaFinalizacion.substring(6,10);
             String fechaFinal = yearF + "-" + monthF + "-" + dayF;
-           
-            DAOFactory DAOFactoryImpl = DAOFactory.getDAOFactory();
-            SQLProyectoDAO SQLProyectoDAO = DAOFactoryImpl.getProyectosDAOSQL();
-            int codigoProyecto = this.setProyectos(proyecto);
-            SQLProyectoDAO.modificar("pais", pais, codigoProyecto);
-            SQLProyectoDAO.modificar("localizacion", localizacion, codigoProyecto);
-            SQLProyectoDAO.modificar("lineaDeAccion", lineaDeAccion, codigoProyecto);
-            SQLProyectoDAO.modificar("sublineaDeAccion", sublineaDeAccion, codigoProyecto);
-            SQLProyectoDAO.modificar("fechaDeInicio", fechaInicial, codigoProyecto);
-            SQLProyectoDAO.modificar("fechaDefinalizacion", fechaFinal, codigoProyecto);
-            SQLProyectoDAO.modificar("socioLocal", socioLocal, codigoProyecto);
-            SQLProyectoDAO.modificar("financiador", financiador, codigoProyecto);
-            SQLProyectoDAO.modificar("financiacionAportada", financiacion, codigoProyecto);
-            SQLProyectoDAO.modificar("costeProyecto", coste, codigoProyecto);
-            SQLProyectoDAO.modificar("accionesARealizar", accionesARealizar, codigoProyecto);
+            boolean isValid = true;
+            
+            if (pais.isEmpty()|| localizacion.isEmpty() || lineaDeAccion.isEmpty() || sublineaDeAccion.isEmpty() || fechaInicio.isEmpty() || fechaFinalizacion.isEmpty() || financiador.isEmpty() || financiador.isEmpty() || coste.isEmpty() || socioLocal.isEmpty() || accionesARealizar.isEmpty() || financiacion.isEmpty()){
+            
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Campo vacío");
+                alert.setHeaderText("Campo vacío");
+                alert.setContentText("No puede haber ningún campo vacío para modificar un nuevo proyecto");
+                alert.showAndWait();  
+                isValid = false;
 
+            }
+            
+            if(isValid){
+           
+                DAOFactory DAOFactoryImpl = DAOFactory.getDAOFactory();
+                SQLProyectoDAO SQLProyectoDAO = DAOFactoryImpl.getProyectosDAOSQL();
+                int codigoProyecto = this.setProyectos(proyecto);
+                SQLProyectoDAO.modificar("pais", pais, codigoProyecto);
+                SQLProyectoDAO.modificar("localizacion", localizacion, codigoProyecto);
+                SQLProyectoDAO.modificar("lineaDeAccion", lineaDeAccion, codigoProyecto);
+                SQLProyectoDAO.modificar("sublineaDeAccion", sublineaDeAccion, codigoProyecto);
+                SQLProyectoDAO.modificar("fechaDeInicio", fechaInicial, codigoProyecto);
+                SQLProyectoDAO.modificar("fechaDefinalizacion", fechaFinal, codigoProyecto);
+                SQLProyectoDAO.modificar("socioLocal", socioLocal, codigoProyecto);
+                SQLProyectoDAO.modificar("financiador", financiador, codigoProyecto);
+                SQLProyectoDAO.modificar("financiacionAportada", financiacion, codigoProyecto);
+                SQLProyectoDAO.modificar("costeProyecto", coste, codigoProyecto);
+                SQLProyectoDAO.modificar("accionesARealizar", accionesARealizar, codigoProyecto);
+                
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Proyecto guardado");
+                alert.setHeaderText("Proyecto guardado");
+                alert.setContentText("El nuevo proyecto ha sido modificado y guardado correctamente");
+                alert.showAndWait();
+                
+            }
 
             Stage stage1 = (Stage) buttonGuardar.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Views/VerTodosLosProyectos.fxml"));
@@ -114,9 +138,14 @@ public class ModificarProyectoController implements Initializable {
             stage.show();
 
             }
-        catch (Exception e){
-            e.printStackTrace();
-        }  
+       catch (IOException | NumberFormatException | SQLException e) {
+            e.printStackTrace();   
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Campo vacío o incorrecto");
+            alert.setHeaderText("Campo vacío o incorrecto");
+            alert.setContentText("No puede haber ningún campo vacío para crear un nuevo proyecto o los campos financiacion y costeProyecto no son números");
+            alert.showAndWait();  
+        }       
     }
     
     public int setProyectos (Proyecto proyecto) {

@@ -7,23 +7,23 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="481.0" prefWidth="787.0" stylesheets="@Tabla.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MadBBDD.producto4.controllers.VerTodasDelegacionesController">
+<AnchorPane id="AnchorPane" prefHeight="476.0" prefWidth="1168.0" stylesheets="@Tabla.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MadBBDD.producto4.controllers.VerTodasDelegacionesController">
     <children>
-        <Pane layoutX="18.0" layoutY="46.0" prefHeight="330.0" prefWidth="749.0">
+        <Pane layoutX="18.0" layoutY="46.0" prefHeight="330.0" prefWidth="1131.0">
         <children>
-        <TableView fx:id="verTodasDelegaciones" prefHeight="330.0" prefWidth="749.0">
+        <TableView fx:id="verTodasDelegaciones" prefHeight="330.0" prefWidth="1131.0">
         <columns>
         <TableColumn fx:id="idDelegacion" prefWidth="154.0" text="idDelegacion" />
         <TableColumn fx:id="cifOng" minWidth="0.0" prefWidth="113.0" text="cifOng" />
         <TableColumn fx:id="nombre" minWidth="0.0" prefWidth="183.0" text="Nombre" />
-        <TableColumn fx:id="direccion" minWidth="0.0" prefWidth="125.0" text="Direccion" />
-        <TableColumn fx:id="telefono" minWidth="0.0" prefWidth="172.0" text="Telefono" />
+        <TableColumn fx:id="direccion" minWidth="0.0" prefWidth="446.0" text="Direccion" />
+        <TableColumn fx:id="telefono" minWidth="0.0" prefWidth="234.0" text="Telefono" />
         </columns>
         </TableView>
         </children>
         </Pane>
-      <Button fx:id="modificarDelegacion" layoutX="242.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleModificar" prefHeight="25.0" prefWidth="301.0" text="Modificar delegación" />
+      <Button fx:id="modificarDelegacion" layoutX="433.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleModificar" prefHeight="25.0" prefWidth="301.0" text="Modificar delegación" />
       <Button fx:id="atras" layoutX="18.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleAtras" prefHeight="25.0" prefWidth="124.0" text="Atrás" />
-      <Button fx:id="buttonSalir" layoutX="643.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleSalir" text="Salir de la aplicación" />
+      <Button fx:id="buttonSalir" layoutX="994.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleSalir" text="Salir de la aplicación" />
     </children>   
 </AnchorPane>

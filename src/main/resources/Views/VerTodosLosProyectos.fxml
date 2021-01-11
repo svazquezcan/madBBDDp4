@@ -30,6 +30,6 @@
         </Pane>
       <Button fx:id="modificarProyecto" layoutX="436.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleModificar" prefHeight="25.0" prefWidth="295.0" text="Modificar proyecto" />
       <Button fx:id="atras" layoutX="18.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleAtras" prefHeight="25.0" prefWidth="143.0" text="Atrás" />
-      <Button fx:id="buttonSalir" layoutX="1006.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleSalir" prefHeight="25.0" prefWidth="143.0" text="Salir de la aplicación" />
+      <Button fx:id="buttonSalir" layoutX="987.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleSalir" prefHeight="31.0" prefWidth="162.0" text="Salir de la aplicación" />
     </children>   
 </AnchorPane>

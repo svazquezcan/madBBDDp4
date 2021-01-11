@@ -90,7 +90,7 @@ public class AñadirProyectosController implements Initializable {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Views/VerTodosLosProyectos.fxml"));
             boolean isValid = true;
             
-            if (pais.isEmpty()|| localizacion.isEmpty() || lineaDeAccion.isEmpty() || sublineaDeAccion.isEmpty() || financiador.isEmpty() || financiador.isEmpty() || coste == 0|| socioLocal.isEmpty() || accionesARealizar.isEmpty() || financiacion == 0){
+            if (pais.isEmpty()|| localizacion.isEmpty() || lineaDeAccion.isEmpty() || sublineaDeAccion.isEmpty() || fechaInicio.isEmpty() || fechaFinalizacion.isEmpty() || financiador.isEmpty() || financiador.isEmpty() || coste == 0|| socioLocal.isEmpty() || accionesARealizar.isEmpty() || financiacion == 0){
             
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Campo vacío");

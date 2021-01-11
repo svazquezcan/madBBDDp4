@@ -50,7 +50,7 @@ public class EliminarDelegacionesController implements Initializable {
             SQLDelegacionDAO totalSQLDelegacionesDAO = DAOFactoryImpl.getDelegacionesDAOSQL();
             respuestaQuery = totalSQLDelegacionesDAO.checkidDelegacion(codigo);
             
-            if (respuestaQuery != -1 || respuestaQuery != 0){
+            if (respuestaQuery != -1){
                 totalSQLDelegacionesDAO.eliminar(codigo);
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Eliminación de delegación");

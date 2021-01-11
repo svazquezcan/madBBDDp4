@@ -11,15 +11,15 @@
         <children>
     <Pane layoutX="7.0" layoutY="64.0" prefHeight="330.0" prefWidth="632.0">
     <children>
-        <Label fx:id="lbl_tipoDePersonal" layoutX="14.0" layoutY="45.0" text="Introduce la ID de la delegación la cual deseas eliminar:" />
+        <Label fx:id="lbl_tipoDePersonal" layoutX="14.0" layoutY="43.0" text="Introduce el ID de la delegación que deseas eliminar:" />
         <Label fx:id="lbl_codigoDePersonal" layoutX="14.0" layoutY="93.0" text="lD delegacion" />
         <TextField fx:id="txt_idDelegacion" layoutX="166.0" layoutY="88.0" prefHeight="25.0" prefWidth="170.0" />
         <Button fx:id="buttonEliminar" cancelButton="true " layoutX="450.0" layoutY="212.0" mnemonicParsing="false" onAction="#handleEliminar" prefHeight="31.0" prefWidth="140.0" text="Eliminar" />
-        <Button fx:id="buttonAtras" cancelButton="true" layoutX="26.0" layoutY="212.0" mnemonicParsing="false" onAction="#handleAtras" prefHeight="26.0" prefWidth="140.0" text="Atrás" />
-        <Button fx:id="buttonSalir" alignment="CENTER" cancelButton="true " layoutX="191.0" layoutY="212.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#handleSalir" prefHeight="31.0" prefWidth="243.0" text="Salir de la aplicación" />
+        <Button fx:id="buttonAtras" cancelButton="true" layoutX="14.0" layoutY="212.0" mnemonicParsing="false" onAction="#handleAtras" prefHeight="26.0" prefWidth="140.0" text="Atrás" />
+        <Button fx:id="buttonSalir" alignment="CENTER" cancelButton="true " layoutX="166.0" layoutY="212.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#handleSalir" prefHeight="31.0" prefWidth="170.0" text="Salir de la aplicación" />
         </children>
         </Pane>
-      <Label layoutX="25.0" layoutY="22.0" text="Eliminar delegación">
+      <Label layoutX="14.0" layoutY="22.0" text="Eliminar delegación">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

@@ -54,6 +54,7 @@ public class AñadirDelegacionesController implements Initializable {
             boolean isValid = true;
             
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Views/VerTodasDelegaciones.fxml"));
+            
             if (nombre.isEmpty()|| direccion.isEmpty() || telefono.isEmpty() ){
             
                 Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -63,6 +64,17 @@ public class AñadirDelegacionesController implements Initializable {
                 alert.showAndWait();  
                 isValid = false;
             }
+            
+              if (!telefono.matches("[0-9]*") ){
+            
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("No se ha podido crear ningúna delegación");
+                alert.setHeaderText("Campo teléfono incorrecto");
+                alert.setContentText("No puede haber letras en el campo teléfono");
+                alert.showAndWait();  
+                isValid = false;
+            }
+              
             if (isValid){
             
                 Delegacion nuevaDelegacion = new Delegacion(nombre, direccion, telefono, cifOng);
@@ -81,6 +93,7 @@ public class AñadirDelegacionesController implements Initializable {
                 alert.showAndWait();
             
             }
+            
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));

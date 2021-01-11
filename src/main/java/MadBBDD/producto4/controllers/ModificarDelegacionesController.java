@@ -58,14 +58,37 @@ public class ModificarDelegacionesController implements Initializable {
             String nombre = this.txt_nombredelegacion.getText();
             String direccion = this.txt_direccion.getText();
             String telefono = this.txt_telefono.getText();
+            boolean isValid = true;
             
-            DAOFactory DAOFactoryImpl = DAOFactory.getDAOFactory();
-            SQLDelegacionDAO SQLDelegacionDAO = DAOFactoryImpl.getDelegacionesDAOSQL();
-            int idDelegacion = this.setDelegacionesMI(delegacion);
-            SQLDelegacionDAO.modificar("nombre", nombre, idDelegacion);
-            SQLDelegacionDAO.modificar("direccion", direccion, idDelegacion);
-            SQLDelegacionDAO.modificar("telefono", telefono, idDelegacion);
-           
+             if (nombre.isEmpty()|| direccion.isEmpty() || telefono.isEmpty() ){
+            
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("No se ha podido crear ningúna delegación");
+                alert.setHeaderText("Campo vacío");
+                alert.setContentText("No puede haber ningún campo vacío para crear una nueva delegación");
+                alert.showAndWait();  
+                isValid = false;
+            }
+            
+              if (!telefono.matches("[0-9]*") ){
+            
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("No se ha podido crear ningúna delegación");
+                alert.setHeaderText("Campo teléfono incorrecto");
+                alert.setContentText("No puede haber letras en el campo teléfono");
+                alert.showAndWait();  
+                isValid = false;
+            }
+            
+            if (isValid){
+                DAOFactory DAOFactoryImpl = DAOFactory.getDAOFactory();
+                SQLDelegacionDAO SQLDelegacionDAO = DAOFactoryImpl.getDelegacionesDAOSQL();
+                int idDelegacion = this.setDelegacionesMI(delegacion);
+                SQLDelegacionDAO.modificar("nombre", nombre, idDelegacion);
+                SQLDelegacionDAO.modificar("direccion", direccion, idDelegacion);
+                SQLDelegacionDAO.modificar("telefono", telefono, idDelegacion);
+            }   
+            
             Stage stage1 = (Stage) buttonGuardar.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Views/VerTodasDelegaciones.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
