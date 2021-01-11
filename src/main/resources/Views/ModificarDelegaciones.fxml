@@ -7,12 +7,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MadBBDD.producto4.controllers.ModificarPersonalController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MadBBDD.producto4.controllers.ModificarDelegacionesController">
     <children>
     <Pane layoutX="17.0" layoutY="146.0" prefHeight="220.0" prefWidth="567.0">
     <children>
      <Label fx:id="lbl_nombredelegacion" layoutX="14.0" layoutY="27.0" text="Nombre de la Delegación" />
-        <TextField fx:id="txt_nombre" layoutX="165.0" layoutY="23.0" prefHeight="31.0" prefWidth="159.0" />
+        <TextField fx:id="txt_nombredelegacion" layoutX="165.0" layoutY="23.0" prefHeight="31.0" prefWidth="159.0" />
         <Label fx:id="lbl_direccion" layoutX="14.0" layoutY="67.0" text="Dirección" />
         <TextField fx:id="txt_direccion" layoutX="165.0" layoutY="62.0" prefHeight="31.0" prefWidth="159.0" />
         <Label fx:id="lbl_telefono" layoutX="13.0" layoutY="107.0" text="Teléfono" />

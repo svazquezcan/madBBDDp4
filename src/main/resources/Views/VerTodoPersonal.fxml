@@ -24,8 +24,8 @@
         </TableView>
         </children>
         </Pane>
-      <Button fx:id="modificarPersonal" layoutX="512.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleModificar" text="Modificar personal" />
-            <Button fx:id="atras" layoutX="18.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleAtras" prefHeight="0.0" prefWidth="54.0" text="Atrás" />
-      <Button fx:id="buttonSalir" layoutX="994.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleSalir" text="Salir de la aplicación" />
+      <Button fx:id="modificarPersonal" layoutX="438.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleModificar" prefHeight="25.0" prefWidth="291.0" text="Modificar personal" />
+            <Button fx:id="atras" layoutX="18.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleAtras" prefHeight="25.0" prefWidth="124.0" text="Atrás" />
+      <Button fx:id="buttonSalir" layoutX="1025.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleSalir" text="Salir de la aplicación" />
     </children>   
 </AnchorPane>

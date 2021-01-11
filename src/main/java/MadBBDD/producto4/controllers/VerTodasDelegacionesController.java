@@ -20,6 +20,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -46,13 +47,42 @@ public class VerTodasDelegacionesController implements Initializable {
     @FXML
     public TableColumn cifOng;
     
-    
+    @FXML
     public Button atras;
     @FXML
     public Button modificarDelegacion;
     @FXML
     public Button buttonSalir;
     
+    @FXML
+    public void handleModificar (ActionEvent event1) throws Exception {
+        Delegacion delegacion = verTodasDelegaciones.getSelectionModel().getSelectedItem();
+        if (delegacion != null) {
+            Stage stage2 = (Stage) modificarDelegacion.getScene().getWindow();
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Views/ModificarDelegaciones.fxml"));
+                Parent root1 = (Parent) fxmlLoader.load();
+                ModificarDelegacionesController modificarDelegacionesController = fxmlLoader.getController();
+                modificarDelegacionesController.setDelegacionesMI(verTodasDelegaciones.getSelectionModel().getSelectedItem());
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root1));
+                stage2.close();
+                stage.show();
+            } 
+            catch (Exception e) {
+                e.printStackTrace();
+            }   
+            
+            } 
+            else {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("No se ha seleccionado Delegación");
+                alert.setHeaderText("No se ha seleccionado ninguna delegación para modificar");
+                alert.setContentText("Por favor, selecciona una delegación.");
+                alert.showAndWait();
+            }
+
+    }
     
    @FXML
     public void handleAtras(ActionEvent event) throws Exception {

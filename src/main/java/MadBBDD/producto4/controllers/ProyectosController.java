@@ -5,6 +5,8 @@
  */
 package MadBBDD.producto4.controllers;
 
+import MadBBDD.producto4.Delegacion;
+import MadBBDD.producto4.Personal;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -13,6 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
@@ -49,8 +52,8 @@ public class ProyectosController implements Initializable {
             e.printStackTrace();
         }        
     }
-    
-     @FXML
+            
+    @FXML
     public void handleVerTodo(ActionEvent event1) throws Exception {
         Stage stage2 = (Stage) buttonVerTodo.getScene().getWindow();
         try {

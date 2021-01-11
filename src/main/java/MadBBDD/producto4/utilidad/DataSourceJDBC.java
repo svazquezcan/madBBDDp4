@@ -16,7 +16,7 @@ public class DataSourceJDBC {
     private DriverManagerDataSource dataSource = new DriverManagerDataSource();
     private final String url = "jdbc:mysql://localhost:3306/producto3?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private final String dbUsername = "root";
-    private final String dbPassword = "arkarianKirtash4";
+    private final String dbPassword = "2929R4u1123.";
  
 
     public DataSourceJDBC() {

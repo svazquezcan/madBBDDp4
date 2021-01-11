@@ -17,7 +17,8 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class DelegacionesController implements Initializable {
-
+    @FXML
+    public Button buttonEditar;
     @FXML
     public Button buttonAñadir; 
     @FXML
@@ -26,6 +27,22 @@ public class DelegacionesController implements Initializable {
     public Button buttonVerTodo;
     @FXML
     public Button atras;
+    
+    @FXML
+    public void handleEditar (ActionEvent event4) throws Exception {
+        Stage stage5 = (Stage) buttonEditar.getScene().getWindow();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Views/VerTodasDelegaciones.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage5.close();
+            stage.show();
+        } 
+        catch (Exception e) {
+            e.printStackTrace();
+        }        
+    }
     
     @FXML
     public void handleAtras(ActionEvent event) throws Exception {
