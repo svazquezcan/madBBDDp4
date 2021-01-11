@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MadBBDD.producto4.controllers.ModificarProyectoController">
+     <children>
+    <Pane layoutX="14.0" layoutY="54.0" prefHeight="330.0" prefWidth="632.0">
+    <children>
+        <Label fx:id="lbl_codigoDeProyectoDato" layoutX="154.0" layoutY="28.0" prefHeight="21.0" prefWidth="0.0" />
+        <Label fx:id="lbl_pais" layoutX="14.0" layoutY="67.0" text="Pais" />
+        <TextField fx:id="txt_pais" layoutX="135.0" layoutY="62.0" prefHeight="31.0" prefWidth="170.0" />
+        <Label fx:id="lbl_localizacion" layoutX="13.0" layoutY="107.0" text="Localizacion" />
+        <TextField fx:id="txt_localizacion" layoutX="135.0" layoutY="102.0" prefHeight="25.0" prefWidth="170.0" />
+        <Label fx:id="lbl_lineaDeAccion" layoutX="13.0" layoutY="145.0" text="LineaDeAccion" />
+        <TextField fx:id="txt_lineaDeAccion" layoutX="135.0" layoutY="140.0" prefHeight="25.0" prefWidth="170.0" />
+        <Label fx:id="lbl_sublineaDeAccion" layoutX="305.0" layoutY="28.0" text="SublineaDeAccion" />
+        <TextField fx:id="txt_sublineaDeAccion" layoutX="437.0" layoutY="23.0" prefHeight="25.0" prefWidth="170.0" />
+        <DatePicker fx:id="fechaDeInicio" layoutX="135.0" layoutY="180.0" prefHeight="31.0" prefWidth="170.0" />
+        <DatePicker fx:id="fechaDeFinalizacion" layoutX="135.0" layoutY="220.0" prefHeight="27.0" prefWidth="170.0" />
+        <Label fx:id="lbl_socioLocal" layoutX="343.0" layoutY="67.0" text="SocioLocal" />
+        <TextField fx:id="txt_socioLocal" layoutX="437.0" layoutY="62.0" prefHeight="25.0" prefWidth="170.0" />
+        <Button fx:id="buttonGuardar" cancelButton="true " layoutX="474.0" layoutY="285.0" mnemonicParsing="false" onAction="#handleGuardar" text="Guardar" />
+        <Button fx:id="buttonAtras" cancelButton="true" layoutX="23.0" layoutY="285.0" mnemonicParsing="false" onAction="#handleAtras" prefHeight="26.0" prefWidth="140.0" text="Atrás" />
+        <Button fx:id="buttonSalir" cancelButton="true " layoutX="198.0" layoutY="285.0" mnemonicParsing="false" onAction="#handleSalir" prefHeight="31.0" prefWidth="159.0" text="Salir de la aplicación" />
+        <Label fx:id="lbl_codigoDeProyecto" layoutX="14.0" layoutY="28.0" text="CodigoDeProyecto" />
+            <Label fx:id="lbl_financiador" layoutX="347.0" layoutY="107.0" text="Financiador" />
+            <Label fx:id="financiacion" layoutX="347.0" layoutY="145.0" text="Financiacion" />
+            <TextField fx:id="txt_financiador" layoutX="437.0" layoutY="102.0" prefHeight="31.0" prefWidth="170.0" />
+            <TextField fx:id="txt_financiacionAportada" layoutX="437.0" layoutY="140.0" prefHeight="31.0" prefWidth="170.0" />
+            <TextField fx:id="txt_costeProyecto" layoutX="437.0" layoutY="180.0" prefHeight="31.0" prefWidth="170.0" />
+            <Label fx:id="lbl_costeProyecto" layoutX="347.0" layoutY="185.0" text="Coste" />
+            <Label fx:id="lbl_accionesARealizar" layoutX="347.0" layoutY="225.0" text="Acciones" />
+            <Label fx:id="lbl_fechaDeInicio" layoutX="14.0" layoutY="185.0" text="FechaDeInicio" />
+            <Label fx:id="lbl_fechaDeFinalizacion" layoutX="14.0" layoutY="225.0" text="FechaDeFin" />
+            <TextField fx:id="txt_accionesARealizar" layoutX="437.0" layoutY="220.0" prefHeight="31.0" prefWidth="170.0" />
+        </children>
+        </Pane>
+    </children>
+</AnchorPane>

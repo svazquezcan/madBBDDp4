@@ -23,6 +23,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -85,6 +86,36 @@ public class VerTodosLosProyectosController implements Initializable {
         catch (Exception e) {
             e.printStackTrace();
         }        
+    }
+    
+    @FXML
+    public void handleModificar (ActionEvent event1) throws Exception {
+        Proyecto proyecto = verTodosLosProyectos.getSelectionModel().getSelectedItem();
+        if (proyecto != null) {
+            Stage stage2 = (Stage) modificarProyecto.getScene().getWindow();
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Views/ModificarProyecto.fxml"));
+                Parent root1 = (Parent) fxmlLoader.load();
+                ModificarProyectoController modificarProyectoController = fxmlLoader.getController();
+                modificarProyectoController.setProyectos(verTodosLosProyectos.getSelectionModel().getSelectedItem());
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root1));
+                stage2.close();
+                stage.show();
+            } 
+            catch (Exception e) {
+                e.printStackTrace();
+            }   
+            
+            } 
+            else {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("No se ha seleccionado proyecto");
+                alert.setHeaderText("No se ha seleccionado proyecto");
+                alert.setContentText("Por favor, selecciona un proyecto.");
+                alert.showAndWait();
+            }
+
     }
     
     @FXML

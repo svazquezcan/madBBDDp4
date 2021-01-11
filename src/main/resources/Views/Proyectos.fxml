@@ -27,7 +27,7 @@
                <children>
                   <HBox alignment="TOP_CENTER" prefHeight="59.0" prefWidth="291.0">
                      <children>
-                        <Button fx:id="buttonEditar" contentDisplay="BOTTOM" mnemonicParsing="false" text="Editar">
+                        <Button fx:id="buttonEditar" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#handleEditar" text="Editar">
                            <HBox.margin>
                               <Insets right="5.0" />
                            </HBox.margin>
